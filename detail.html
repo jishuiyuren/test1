@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".selectDiv").click(function () {
+                $(".partDiv").hide();
+                var data_id = $(this).attr("data-id");
+                $("#part_" + data_id).show();
+                $("li").removeClass('active');
+                $("li[data-id=" + data_id + "]").addClass('active');
+            })
+        })
+    </script>
+    <title>git/github</title>
+    <style>
+        body {
+            background: #C1C7D0;
+        }
+    </style>
+</head>
+<body>
+<div id="header">
+    <div id="page-wrap">
+        <ul class="git-url">
+            <li class="selectDiv active" data-id="1">新建</li>
+            <li class="selectDiv" data-id="2">配置</li>
+            <li class="selectDiv" data-id="3">增/删</li>
+            <li class="selectDiv" data-id="4">提交</li>
+            <li class="selectDiv" data-id="5">分支</li>
+            <li class="selectDiv" data-id="6">标签</li>
+            <li class="selectDiv" data-id="7">查看</li>
+            <li class="selectDiv" data-id="8">远程</li>
+            <li class="selectDiv" data-id="9">撤销</li>
+            <li class="selectDiv" data-id="10">要点</li>
+        </ul>
+        <div id="part_1" class="partDiv" style="display: block">
+            <h1># 在当前目录新建一个Git代码库</h1>
+            <h2>$ git init</h2>
+            <h1># 新建一个目录，将其初始化为Git代码库</h1>
+            <h2>$ git init [project-name]</h2>
+            <h1># 下载一个项目和它的整个代码历史</h1>
+            <h2>$ git clone [url]</h2>
+        </div>
+        <div id="part_2" class="partDiv">
+            <h1>Git的设置文件为.gitconfig，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。</h1>
+            <h1># 显示当前的Git配置</h1>
+            <h2>$ git config --list</h2>
+            <h1># 编辑Git配置文件</h1>
+            <h2>$ git config -e [--global]</h2>
+            <h1># 设置提交代码时的用户信息</h1>
+            <h2>$ git config [--global] user.name "[name]"</h2>
+            <h2>$ git config [--global] user.email "[email address]"</h2>
+        </div>
+        <div id="part_3" class="partDiv">
+            <h1># 添加指定文件到暂存区</h1>
+            <h2>$ git add [file1] [file2] ...</h2>
+            <h1># 添加指定目录到暂存区，包括子目录</h1>
+            <h2>$ git add [dir]</h2>
+            <h1># 添加当前目录的所有文件到暂存区</h1>
+            <h2>$ git add .</h2>
+            <h1># 添加每个变化前，都会要求确认</h1>
+            <h1># 对于同一个文件的多处变化，可以实现分次提交</h1>
+            <h2>$ git add -p</h2>
+            <h1># 删除工作区文件，并且将这次删除放入暂存区</h1>
+            <h2>$ git rm [file1] [file2] ...</h2>
+            <h1># 停止追踪指定文件，但该文件会保留在工作区</h1>
+            <h2>$ git rm --cached [file]</h2>
+            <h1># 改名文件，并且将这个改名放入暂存区</h1>
+            <h2>$ git mv [file-original] [file-renamed]</h2>
+        </div>
+        <div id="part_4" class="partDiv">
+            <h1># 提交暂存区到仓库区</h1>
+            <h2>$ git commit -m [message]</h2>
+            <h1># 提交暂存区的指定文件到仓库区</h1>
+            <h2>$ git commit [file1] [file2] ... -m [message]</h2>
+            <h1># 提交工作区自上次commit之后的变化，直接到仓库区</h1>
+            <h2>$ git commit -a</h2>
+            <h1># 提交时显示所有diff信息</h1>
+            <h2>$ git commit -v</h2>
+            <h1># 使用一次新的commit，替代上一次提交</h1>
+            <h1># 如果代码没有任何新变化，则用来改写上一次commit的提交信息</h1>
+            <h2>$ git commit --amend -m [message]</h2>
+            <h1># 重做上一次commit，并包括指定文件的新变化</h1>
+            <h2>$ git commit --amend [file1] [file2] ...</h2>
+
+        </div>
+        <div id="part_5" class="partDiv">
+            <h1># 列出所有本地分支</h1>
+            <h2> $ git branch</h2>
+            <h1># 列出所有远程分支</h1>
+            <h2>$ git branch -r</h2>
+            <h1># 列出所有本地分支和远程分支</h1>
+            <h2>$ git branch -a</h2>
+            <h1> # 新建一个分支，但依然停留在当前分支</h1>
+            <h2>$ git branch [branch-name]</h2>
+            <h1> # 新建一个分支，并切换到该分支</h1>
+            <h2>$ git checkout -b [branch]</h2>
+            <h1># 新建一个分支，指向指定commit</h1>
+            <h2>$ git branch [branch] [commit]</h2>
+            <h1> # 新建一个分支，与指定的远程分支建立追踪关系</h1>
+            <h2>$ git branch --track [branch] [remote-branch]</h2>
+            <h1># 切换到指定分支，并更新工作区</h1>
+            <h2>$ git checkout [branch-name]</h2>
+            <h1> # 切换到上一个分支</h1>
+            <h2>$ git checkout -</h2>
+            <h1># 建立追踪关系，在现有分支与指定的远程分支之间</h1>
+            <h2>$ git branch --set-upstream [branch] [remote-branch]</h2>
+            <h1># 合并指定分支到当前分支</h1>
+            <h2>$ git merge [branch]</h2>
+            <h1># 选择一个commit，合并进当前分支</h1>
+            <h2>$ git cherry-pick [commit]</h2>
+            <h1># 删除分支</h1>
+            <h2>$ git branch -d [branch-name]</h2>
+            <h1># 删除远程分支</h1>
+            <h2>$ git push origin --delete [branch-name]</h2>
+            <h2>$ git branch -dr [remote/branch]</h2>
+        </div>
+        <div id="part_6" class="partDiv">
+            <h1># 列出所有tag</h1>
+            <h2>$ git tag</h2>
+            <h1># 新建一个tag在当前commit</h1>
+            <h2>$ git tag [tag]</h2>
+            <h1># 新建一个tag在指定commit</h1>
+            <h2>$ git tag [tag] [commit]</h2>
+            <h1># 删除本地tag</h1>
+            <h2>$ git tag -d [tag]</h2>
+            <h1># 删除远程tag</h1>
+            <h2>$ git push origin :refs/tags/[tagName]</h2>
+            <h1># 查看tag信息</h1>
+            <h2>$ git show [tag]</h2>
+            <h1># 提交指定tag</h1>
+            <h2>$ git push [remote] [tag]</h2>
+            <h1># 提交所有tag</h1>
+            <h2>$ git push [remote] --tags</h2>
+            <h1># 新建一个分支，指向某个tag</h1>
+            <h2>$ git checkout -b [branch] [tag]</h2>
+        </div>
+        <div id="part_7" class="partDiv">
+            <h1># 显示有变更的文件</h1>
+            <h2>$ git status</h2>
+            <h1># 显示当前分支的版本历史</h1>
+            <h2>$ git log</h2>
+            <h1># 显示commit历史，以及每次commit发生变更的文件</h1>
+            <h2>$ git log --stat</h2>
+            <h1># 搜索提交历史，根据关键词</h1>
+            <h2>$ git log -S [keyword]</h2>
+            <h1># 显示某个commit之后的所有变动，每个commit占据一行</h1>
+            <h2>$ git log [tag] HEAD --pretty=format:%s</h2>
+            <h1># 显示某个commit之后的所有变动，其"提交说明"必须符合搜索条件</h1>
+            <h2>$ git log [tag] HEAD --grep feature</h2>
+            <h1># 显示某个文件的版本历史，包括文件改名</h1>
+            <h2>$ git log --follow [file]</h2>
+            <h2>$ git whatchanged [file]</h2>
+            <h1># 显示指定文件相关的每一次diff</h1>
+            <h2>$ git log -p [file]</h2>
+            <h1># 显示过去5次提交</h1>
+            <h2>$ git log -5 --pretty --oneline</h2>
+
+            <h1># 显示所有提交过的用户，按提交次数排序</h1>
+            <h2>$ git shortlog -sn</h2>
+
+            <h1># 显示指定文件是什么人在什么时间修改过</h1>
+            <h2>$ git blame [file]</h2>
+            <h1># 显示暂存区和工作区的差异</h1>
+            <h2>$ git diff</h2>
+
+            <h1># 显示暂存区和上一个commit的差异</h1>
+            <h2>$ git diff --cached [file]</h2>
+
+            <h1># 显示工作区与当前分支最新commit之间的差异</h1>
+            <h2>$ git diff HEAD</h2>
+
+            <h1># 显示两次提交之间的差异</h1>
+            <h2>$ git diff [first-branch]...[second-branch]</h2>
+
+            <h1># 显示今天你写了多少行代码</h1>
+            <h2>$ git diff --shortstat "@{0 day ago}"</h2>
+
+            <h1># 显示某次提交的元数据和内容变化</h1>
+            <h2>$ git show [commit]</h2>
+
+            <h1># 显示某次提交发生变化的文件</h1>
+            <h2> $ git show --name-only [commit]</h2>
+
+            <h1># 显示某次提交时，某个文件的内容</h1>
+            <h2>$ git show [commit]:[filename]</h2>
+
+            <h1># 显示当前分支的最近几次提交</h1>
+            <h2>$ git reflog</h2>
+        </div>
+        <div id="part_8" class="partDiv">
+            <h1># 下载远程仓库的所有变动</h1>
+            <h2>$ git fetch [remote]</h2>
+
+            <h1># 显示所有远程仓库</h1>
+            <h2>$ git remote -v</h2>
+
+            <h1># 显示某个远程仓库的信息</h1>
+            <h2>$ git remote show [remote]</h2>
+
+            <h1># 增加一个新的远程仓库，并命名</h1>
+            <h2>$ git remote add [shortname] [url]</h2>
+
+            <h1># 取回远程仓库的变化，并与本地分支合并</h1>
+            <h2>$ git pull [remote] [branch]</h2>
+
+            <h1># 上传本地指定分支到远程仓库</h1>
+            <h2>$ git push [remote] [branch]</h2>
+
+            <h1># 强行推送当前分支到远程仓库，即使有冲突</h1>
+            <h2>$ git push [remote] --force</h2>
+
+            <h1># 推送所有分支到远程仓库</h1>
+            <h2>$ git push [remote] --all</h2>
+        </div>
+        <div id="part_9" class="partDiv">
+            <h1># 恢复暂存区的指定文件到工作区</h1>
+            <h2>$ git checkout [file]</h2>
+
+            <h1># 恢复某个commit的指定文件到暂存区和工作区</h1>
+            <h2>$ git checkout [commit] [file]</h2>
+
+            <h1># 恢复暂存区的所有文件到工作区</h1>
+            <h2>$ git checkout .</h2>
+
+            <h1># 重置暂存区的指定文件，与上一次commit保持一致，但工作区不变</h1>
+            <h2>$ git reset [file]</h2>
+
+            <h1># 重置暂存区与工作区，与上一次commit保持一致</h1>
+            <h2>$ git reset --hard</h2>
+
+            <h1># 重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变</h1>
+            <h2>$ git reset [commit]</h2>
+
+            <h1># 重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致</h1>
+            <h2>$ git reset --hard [commit]</h2>
+
+            <h1># 重置当前HEAD为指定commit，但保持暂存区和工作区不变</h1>
+            <h2>$ git reset --keep [commit]</h2>
+
+            <h1># 新建一个commit，用来撤销指定commit</h1>
+            <h1># 后者的所有变化都将被前者抵消，并且应用到当前分支</h1>
+            <h2>$ git revert [commit]</h2>
+
+            <h1># 暂时将未提交的变化移除，稍后再移入</h1>
+            <h2>$ git stash</h2>
+            <h2>$ git stash pop</h2>
+        </div>
+        <div id="part_10" class="partDiv">
+            <h1>git diff</h1>
+            <h2>1、git diff 比较的是工作区和暂存区的差别
+                2、git diff –cached 比较的是暂存区和版本库的差别
+                3、git diff HEAD 可以查看工作区和版本库的差别</h2>
+            <h1>git reset和git revert的区别</h1>
+            <h2>reset是重置，默认是git reset –mixed commitid 可以让版本库重置到某个commit状态，
+                该commit之后的commit不会保留，并重置暂存区，但是不改变工作区。即这个时候，上次提交
+                的内容在工作区中还会存在；如果使用git reset –hard commitid 将版本库，暂存区和工
+                作区的内容全部重置为某个commit的状态。之后的commit也不会保留。</h2>
+
+                <h2>revert比reset更加温柔一点，回滚到某次commit且该commit之后的提交记录都会保留，
+                    并且会在此基础上新建一个提交。所以对于已经push到服务器上的内容作回滚，推荐使用revert。</h2>
+            <h2>git reset三个参数</h2>
+            <ul style="float: left;color: #334e91">
+                <li>mixed</li>
+                <h2>git reset (–mixed) HEAD~1</h2>
+                <h2>回退一个版本,且会将暂存区的内容和本地已提交的内容全部恢复到未暂存的状态,不影响原来本地文件(未提交的也
+不受影响) </h2>
+                <li>soft</li>
+                <h2>git reset –soft HEAD~1</h2>
+                <h2>回退一个版本,不清空暂存区,将已提交的内容恢复到暂存区,不影响原来本地的文件(未提交的也不受影响) </h2>
+                <li>hard</li>
+                <h2>git reset –hard HEAD~1 </h2>
+                <h2>回退一个版本,清空暂存区,将已提交的内容的版本恢复到本地,本地的文件也将被恢复的版本替换</h2>
+            </ul>
+
+        </div>
+
+    </div>
+</div>
+
+<div style="width: 150px;float: right;margin-right: 20px">
+    <a href="10%20Years%20of%20Git%20_%20Atlassian%20Git%20Tutorial_files.htm"><img src="10 Years of Git _ Atlassian Git Tutorial_files/timg.jpg" style="width: 100%" /></a>
+</div>
+</body>
+
+
+</html>
+
+<style>
+    ul {
+        text-align: center;
+    }
+
+    li {
+        display: inline-block;
+        list-style: none;
+        color: #fff;
+        border-radius: 9px;
+        vertical-align: top;
+        text-align: center;
+        padding: 15px;
+        height: 18px;
+        line-height: 18px;
+        min-width: 28px;
+        max-width: 100px;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        margin-left: 5px;
+        background: #b8c0cc;
+        font-size: 30px;
+        cursor: pointer;
+    }
+
+    li.active {
+        background: #ff8eb3;
+    }
+
+    .partDiv {
+        width: 80%;
+        margin: 0 auto;
+        /*border: 2px solid yellow;*/
+        border-radius: 10px;
+        height: 600px;
+        padding-left: 30px;
+        display: none;
+    }
+
+    h1 {
+        color: lightslategray;
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        font-size: 30px;
+        color:orchid;
+    }
+</style>
+

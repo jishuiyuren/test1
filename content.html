@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <title>git/github</title>
+    <style>
+        body {
+            background: #C1C7D0;
+        }
+    </style>
+</head>
+<body>
+<div id="title" style="font-size: 25px">GIT安装</div>
+<h2>Windows 平台上安装
+    在 Windows 平台上安装 Git 同样轻松，有个叫做 msysGit 的项目提供了安装包，可以到 GitHub 的页面上下载 exe 安装文件并运行：
+
+    安装包下载地址：</h2>
+<a style="font-size: 30px" href=" https://gitforwindows.org/"> https://gitforwindows.org/</a>
+
+   <h1>Git 配置</h1>
+<h2>
+    Git 提供了一个叫做 git config 的工具，专门用来配置或读取相应的工作环境变量。
+
+    这些环境变量，决定了 Git 在各个环节的具体工作方式和行为。这些变量可以存放在以下三个不同的地方：
+</h2>
+<ul style="font-size: 25px">
+    <li>/etc/gitconfig 文件：系统中对所有用户都普遍适用的配置。若使用 git config 时用 --system 选项，读写的就是这个文件。</li>
+    <li>~/.gitconfig 文件：用户目录下的配置文件只适用于该用户。若使用 git config 时用 --global 选项，读写的就是这个文件。</li>
+    <li>当前项目的 Git 目录中的配置文件（也就是工作目录中的 .git/config 文件）：这里的配置仅仅针对当前项目有效。每一个级别的配置都会覆盖上层的相同配置，所以 .git/config 里的配置会覆盖 /etc/gitconfig 中的同名变量。</li>
+</ul>
+<h2>
+    在 Windows 系统上，Git 会找寻用户主目录下的 .gitconfig 文件。主目录即 $HOME 变量指定的目录，一般都是 C:\Documents and Settings\$USER。
+
+    此外，Git 还会尝试找寻 /etc/gitconfig 文件，只不过看当初 Git 装在什么目录，就以此作为根目录来定位。
+</h2>
+
+<h1>搭建git服务器</h1>
+<ul style="font-size: 30px">
+    <li>(1)安装git:在已经有sudo权限的用户账号下，正式开始安装</li>
+    <span class="git">$ sudo apt-get install git</span>
+    <li>(2)创建一个git用户，用来运行git服务：</li>
+    <span class="git">$ sudo adduser git</span>
+    <li>(3)创建证书登录：</li>
+    <span>收集所有需要登录的用户的公钥，就是他们自己的id_rsa.pub文件，把所有公钥导入到/home/git/.ssh/authorized_keys文件里，一行一个。</span>
+    <li>(4)初始化Git仓库：先选定一个目录作为Git仓库，假定是/srv/sample.git，在/srv目录下输入命令：</li>
+    <span class="git">$ sudo git init --bare sample.git</span></br>
+    <span>Git就会创建一个裸仓库，裸仓库没有工作区，因为服务器上的Git仓库纯粹是为了共享，
+        所以不让用户直接登录到服务器上去改工作区，并且服务器上的Git仓库通常都以.git结尾。然后，把owner改为git：</span>
+    <span>$ sudo chown -R git:git sample.git</span>
+
+</ul>
+
+<div style="width: 150px;float: right;margin-right: 20px">
+    <a href="10%20Years%20of%20Git%20_%20Atlassian%20Git%20Tutorial_files.htm"><img src="10 Years of Git _ Atlassian Git Tutorial_files/timg.jpg" style="width: 100%" /></a>
+</div>
+
+</body>
+
+
+</html>
+<style>
+    #title{
+        font-size: 18px;
+        color: #0065FF;
+    }
+    ul .git{
+        font-style:italic;
+        color: #0065FF;
+    }
+</style>
+

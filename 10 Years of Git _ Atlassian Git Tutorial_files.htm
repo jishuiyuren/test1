@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>git/github</title>
+    <link rel="stylesheet" href="./10 Years of Git _ Atlassian Git Tutorial_files/site.css">
+    <link rel="stylesheet" href="./10 Years of Git _ Atlassian Git Tutorial_files/icons.css" class="additional-css">
+    <link rel="stylesheet" href="./10 Years of Git _ Atlassian Git Tutorial_files/editmode.css" class="additional-css">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#205081">
+    <meta property="og:title" content="10 Years of Git | Atlassian Git Tutorial">
+    <meta property="og:description"
+          content="Learn how other developers are using Git. Tools, tips, tricks, best practices, and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Atlassian">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@Atlassian">
+    <style>
+
+    #optanon #optanon-popup-wrapper .optanon-white-button-middle {
+        background-color: #FFAB00 !important
+    }
+
+    .optanon-alert-box-wrapper .optanon-alert-box-button-middle {
+        background-color: #FFAB00 !important;
+        border-color: #FFAB00 !important;
+    }
+
+    #optanon #optanon-popup-wrapper .optanon-white-button-middle a {
+        color: #ffffff !important
+    }
+
+    .optanon-alert-box-wrapper .optanon-alert-box-button-middle a {
+        color: #ffffff !important
+    }
+
+    #optanon #optanon-popup-bottom {
+        background-color: #0052CC !important
+    }
+
+    #optanon.modern #optanon-popup-top, #optanon.modern #optanon-popup-body-left-shading {
+        background-color: #0052CC !important
+    }
+
+    .optanon-alert-box-wrapper {
+        background-color: #172B4D !important
+    }
+
+    .optanon-alert-box-wrapper .optanon-alert-box-bg p {
+        color: #FFFFFF !important
+    }
+
+    #optanon, #optanon *, #optanon div, #optanon span, #optanon ul, #optanon li, #optanon a, #optanon p, .optanon-alert-box-wrapper * {
+        font-family: LLCircularWeb, "Helvetica Neue", Helvetica, sans-serif;
+    }
+
+    #optanon #optanon-popup-body h2 {
+        position: absolute;
+        top: -55px;
+        font-size: 16px;
+        font-weight: bold;
+        color: rgb(255, 255, 255);
+        margin: 5px 0px 0px 5px;
+    }
+
+    #optanon #optanon-popup-wrapper .optanon-white-button-middle a {
+        color: #000000 !important;
+    }
+
+    .optanon-alert-box-wrapper .optanon-alert-box-button-middle a {
+        color: #000000 !important;
+    }
+
+    .optanon-alert-box-wrapper a {
+        color: #ffffff !important;
+        font-weight: bold;
+
+    }
+
+    .optanon-alert-box-button-middle, #optanon #optanon-popup-wrapper .optanon-white-button-middle {
+        border-radius: 4px;
+    }
+
+    .optanon-alert-box-wrapper {
+        margin: 4px;
+        border-radius: 4px;
+        width: 99.5%;
+    }
+
+    #optanon.modern #optanon-popup-top, #optanon.modern #optanon-popup-body-left-shading {
+        border-top-right-radius: 4px;
+        border-top-left-radius: 4px;
+    }
+
+    #optanon #optanon-popup-bottom {
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+    }
+
+    .optanon-alert-box-wrapper .optanon-button-more .optanon-alert-box-button-middle a:before {
+        content: '';
+    }
+
+    .optanon-alert-box-wrapper .optanon-button-allow .optanon-alert-box-button-middle a:before {
+        content: '';
+    }
+
+    .optanon-alert-box-wrapper .optanon-alert-box-body {
+        margin-right: 390px;
+    }
+
+    #optanon #optanon-popup-top .optanon-close, .optanon-alert-box-wrapper .optanon-alert-box-corner-close a {
+        right: 10px;
+    }
+        .ten-years-index .container{
+
+            background-image: url(https://www.atlassian.com/assets/img/gitguide/ten-years/timeline-large-new.svg);
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-size: 1006px auto;
+            z-index: 1;
+            height: 4480px;
+        }
+
+    @media only screen and (max-width: 47em) {
+        .optanon-alert-box-wrapper.hide-cookie-setting-button .optanon-alert-box-body {
+            margin-right: auto;
+            padding-right: 5px;
+        }
+    }</style>
+    <script type="text/javascript">
+        function OptanonWrapper() {
+        }
+    </script>
+    <!-- OneTrust Cookies Consent Notice (Production CDN, www.atlassian.com, en-GB) end -->
+    <style type="text/css" class="evergageCampaignStyles">/*
+ * Copyright (C) 2010-2014 Evergage, Inc.
+ * All rights reserved.
+ */
+
+    /* Fluid class for determining actual width in IE */
+    #qtip-rcontainer .evergage-tooltip {
+        display: block !important;
+        visibility: hidden !important;
+        position: static !important;
+        float: left !important;
+    }
+
+    .evergage-tooltip .evergage-tooltip-content li.evergage-tasklistitem-notdone, .evergage-tooltip .evergage-tooltip-content li.evergage-tasklistitem-done {
+        text-transform: inherit;
+        display: list-item;
+        width: inherit;
+        line-height: inherit;
+        text-align: left;
+        margin-bottom: 10px;
+        list-style-position: inside;
+    }
+
+    .evergage-tooltip li.evergage-task-done, .evergage-tooltip li.evergage-task-notdone {
+        margin-bottom: 10px;
+    }
+
+    .evergage-tooltip .evergage-tooltip-content li.evergage-tasklistitem-done, .evergage-tooltip li.evergage-task-done {
+        text-decoration: line-through;
+    }
+
+
+    .evergage-tooltip .evergage-tooltip-content {
+        position: relative;
+        padding: 5px 9px;
+        overflow: hidden;
+
+        text-align: left;
+        word-wrap: break-word;
+    }
+
+    .evergage-tooltip .evergage-tooltip-titlebar {
+        position: relative;
+        min-height: 14px;
+        padding: 5px 35px 5px 10px;
+        overflow: hidden;
+
+        border-width: 0 0 1px;
+        font-weight: bold;
+    }
+
+    .evergage-tooltip-titlebar + .evergage-tooltip-content {
+        border-top-width: 0 !important;
+    }
+
+    /* Default close button class */
+    .evergage-tooltip-titlebar .evergage-tooltip-close {
+        position: absolute;
+        right: 4px;
+        top: 50%;
+        margin-top: -9px;
+        font-weight: bold;
+
+        cursor: pointer;
+        outline: medium none;
+
+        border: none;
+        background: transparent;
+        /*border-width: 1px;*/
+        /*border-style: solid;*/
+    }
+
+    .emptyTitle > .evergage-tooltip-titlebar {
+        height: 0;
+        float: right;
+        z-index: 2147483647;
+    }
+
+    * html .evergage-tooltip .evergage-tooltip-titlebar .evergage-tooltip-close {
+        top: 16px;
+    }
+
+    /* IE fix */
+
+    .evergage-tooltip-titlebar .evergage-ui-icon-close,
+    .evergage-tooltip-icon .evergage-ui-icon-close {
+        display: block;
+        text-indent: -1000em;
+        direction: ltr;
+    }
+
+    .evergage-tooltip-icon, .evergage-tooltip-icon .evergage-ui-icon-close {
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+        text-decoration: none;
+    }
+
+    .evergage-tooltip-icon .evergage-ui-icon-close {
+        width: 18px;
+        height: 14px;
+
+        text-align: center;
+        text-indent: 0;
+        font: normal bold 14px/14px sans-serif;
+
+        color: inherit;
+        background: transparent none no-repeat -100em -100em;
+    }
+
+    a.evergage-tooltip-close:hover {
+        text-decoration: none;
+    }
+
+    .evergage-ui-icon-close:hover {
+        font-size: 22px;
+    }
+
+
+    /* IE9 fix - removes all filters */
+    .evergage-tooltip:not(.ie9haxors) div.evergage-tooltip-content,
+    .evergage-tooltip:not(.ie9haxors) div.evergage-tooltip-titlebar {
+        filter: none;
+        -ms-filter: none;
+    }
+
+    /* Tips plugin */
+    .evergage-tooltip .evergage-tooltip-tip {
+        margin: 0 auto;
+        overflow: hidden;
+        z-index: 10;
+    }
+
+    .evergage-tooltip .evergage-tooltip-tip,
+    .evergage-tooltip .evergage-tooltip-tip .evergage-qtip-vml {
+        position: absolute;
+
+        line-height: 0.1px !important;
+        font-size: 0.1px !important;
+        color: #123456;
+
+        background: transparent;
+        border: 0 dashed transparent;
+    }
+
+    .evergage-tooltip .evergage-tooltip-tip canvas {
+        top: 0;
+        left: 0;
+    }
+
+    .evergage-tooltip .evergage-tooltip-tip .evergage-qtip-vml {
+        behavior: url(#default#VML);
+        display: inline-block;
+        visibility: visible;
+    }
+
+    /* Change opacity of overlay here */
+    #evergage-qtip-overlay div {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+
+        background-color: black;
+
+        opacity: 0.7;
+        filter: alpha(opacity=70);
+        -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=70) \";
+    }
+
+    .evergage.poweredByEvergage > a {
+        opacity: 0.2;
+        transition: opacity 0.3s ease-in-out;
+        -webkit-transition: opacity 0.3s ease-in-out;
+        -moz-transition: opacity 0.3s ease-in-out;
+        position: absolute;
+        right: 4px;
+        bottom: 2px;
+    }
+
+    .evergage.poweredByEvergage > a:hover {
+        opacity: 1;
+    }
+
+ </style>
+    <script src="./10 Years of Git _ Atlassian Git Tutorial_files/f(1).txt"></script>
+    <script src="./10 Years of Git _ Atlassian Git Tutorial_files/f(2).txt"></script>
+    <script src="./10 Years of Git _ Atlassian Git Tutorial_files/f(3).txt"></script>
+</head>
+<body id="10-years-of-git" class="wac git articles 10-years-of-git ten-years-bind content-loaded hoverable">
+    <div class="topbar articles" style="color: #a289be;font-size: 24px;
+    text-align: center;">
+        带你们走进Git家族的世界
+    </div>
+<div class="page-wrap">
+    <div id="content" class="_content">
+        <div class="ten-years-index">
+            <div class="container">
+                <div class="container-inner">
+                    <div class="intro">
+                        <p style="font-size: 25px">13年前，Linus Torvalds开始在星期天为一个新的分布式版本控制系统编写代码，
+                            仅仅几天之后，世界就得到了Git的礼物。 Git帮助团队大大小小地工作，同时变
+                            得更加分散，并且通过廉价的本地分支，更轻松的代码审查，灵活的工作流程等等
+                            留下了自己的印记。 在过去十年中，Git呈指数级增长，并成为当今最流行的版本
+                            控制系统。 沿着记忆小道漫步，看看Git多年来如何演变，并加入我们庆祝Git的历史。</p>
+                    </div>
+                    <div class="timeline">
+                        <div class="item small start active enter">
+                            <div class="g-row content">
+                                <p>START</p>
+                            </div>
+                        </div>
+                        <div class="item large announced active enter" id="i1">
+                            <div class="g-row content">
+                                <a href="differ.html">
+                                    <h3 class="date">GIT、GITLAB、GITHUB、GITLIB</h3>
+                                    <h3>GIT、GITLAB、GITHUB、GITLIB是什么，互相之间有什么关系</h3>
+                                </a>
+                            </div>
+                            <div class="kinematic animated">
+                                <img src="./10 Years of Git _ Atlassian Git Tutorial_files/new-announced@2x.png"
+                                     alt="Git Announced">
+                            </div>
+                        </div>
+                        <div class="g-row item tiny first-merge active enter">
+                            <div class="content left">
+                                <!--<h3 class="date">GIT、GITLAB、GITHUB、GITLIB</h3>-->
+                                <!--<h3>Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。</h3>-->
+                                <!--<h3>Git是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。</h3>-->
+                                <!--<a href="https://www.atlassian.com/git/articles/10-years-of-git#"-->
+                                   <!--class="cms-link cms-link&#45;&#45;text info">info</a>-->
+                                <!--<div class="item-modal">-->
+                                    <!--<p>Torvalds merges multiple branches for the first time and according to him, it-->
+                                        <!--came out correctly and 100% according to plan in very little time.</p>-->
+                                <!--</div>-->
+                            </div>
+                        </div>
+                        <div class="g-row item tiny junio-hamano active enter">
+                            <div class="content bottom">
+                                <!--<h3 class="date">Github</h3>-->
+                                <!--<h3>Github - 一个网站，提供给用户空间创建git仓储，保存用户的一些数据文档或者代码等</h3>-->
+                                <!--<h3>作为开源代码库以及版本控制系统，Github目前拥有140多万开发者用户。随着越来越多的应用程序转移到了云上，Github已经成为了管理软件开发以及发现已有代码的首选方法。</h3>-->
+                                <!--<h3>如前所述，作为一个分布式的版本控制系统，在Git中并不存在主库这样的概念，每一份复制出的库都可以独立使用，任何两个库之间的不一致之处都可以进行合并。</h3>-->
+                                <!--<h3>GitHub可以托管各种git库，并提供一个web界面，但与其它像 SourceForge或Google Code这样的服务不同，GitHub的独特卖点在于从另外一个项目进行分支的简易性。-->
+                                    <!--为一个项目贡献代码非常简单：首先点击项目站点的“fork”的按钮，然后将代码检出并将修改加入到刚才分出的代码库中，最后通过内建的“pull request”机制向项目负责-->
+                                    <!--人申请代码合并。已经有人将GitHub称为代码玩家的MySpace。</h3>-->
+                                <!--<a href="https://www.atlassian.com/git/articles/10-years-of-git#"-->
+                                   <!--class="cms-link cms-link&#45;&#45;text info">info</a>-->
+                                <!--<div class="item-modal">-->
+                                    <!--<p>Torvalds has stated that one of the biggest successes in his life was actually-->
+                                        <!--recognizing how good a developer Junio Hamano was on Git, and trusting him-->
+                                        <!--enough to just ask if he would be willing to maintain the project.</p>-->
+                                <!--</div>-->
+                            </div>
+                        </div>
+                        <div class="item large git-1 active enter" id="i2">
+                                <div class="g-row content">
+                                    <a href="content.html">
+                                        <h3 class="date">Git基础操作</h3>
+                                        <h3>安装Git，初次运行Git前操作</h3>
+                                    </a>
+                                </div>
+
+
+                            <div class="kinematic animated">
+                                <img src="./10 Years of Git _ Atlassian Git Tutorial_files/new-git-1@2x.png"
+                                     alt="Git Announced">
+                            </div>
+                        </div>
+                        <div class="g-row item tiny torvalds-google active enter">
+                            <div class="content top">
+                                <!--<h3 class="date">May 2007</h3>-->
+                                <!--<h3>Linus Torvalds gives Git talk at Google</h3>-->
+                                <!--<a href="https://www.atlassian.com/git/articles/10-years-of-git#"-->
+                                   <!--class="cms-link cms-link&#45;&#45;text info">info</a>-->
+                                <!--<div class="item-modal">-->
+                                    <!--<p>Torvalds' tech talk at Google covered his creation of the version control system,-->
+                                        <!--Git. He explains his love for distributed source control in general and-->
+                                        <!--highlights that with a distributed tool, no single place is vital to your data,-->
+                                        <!--centralized version control does not scale for Linux-kernel sized projects.-->
+                                        <!--Plus, distributed tools work offline, with full history.</p>-->
+                                <!--</div>-->
+                            </div>
+                        </div>
+                        <div class="item tiny original-pr active enter">
+                            <!--<div class="content left solid">-->
+                                <!--<h3 class="date">February 2008</h3>-->
+                                <!--<h3>Original pull request</h3>-->
+                                <!--<a href="https://www.atlassian.com/git/articles/10-years-of-git#"-->
+                                   <!--class="cms-link cms-link&#45;&#45;text info">info</a>-->
+                                <!--<div class="item-modal">-->
+                                    <!--<p>During its beta, GitHub released a feature called pull requests. At the time,-->
+                                        <!--pull requests were limited to notifying developers when they needed to pull-->
+                                        <!--changes from a forked repo, or to ask developers to pull. It could also notify-->
+                                        <!--someone that you pushed a new feature to a non-master branch.</p>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        </div>
+                        <div class="item large github-launch active enter" id="i3">
+                            <div class="content">
+                                <a href="detail.html">
+                                    <h3 class="date">常用 Git 命令清单</h3>
+                                    <h3>一般我们熟知6个常用命令就可以进行操作了。但是想深入了解，差不多需要记住60-100个命令。</h3>
+                                </a>
+                            </div>
+                            <div class="kinematic animated">
+                                <img src="./10 Years of Git _ Atlassian Git Tutorial_files/new-github-launch@2x.png"
+                                     alt="Git Announced">
+                            </div>
+                        </div>
+                        <div class="item tiny gist active enter">
+                            <!--<div class="content right">-->
+                                <!--<h3 class="date">July 2008</h3>-->
+                                <!--<h3>Gist announced</h3>-->
+                                <!--<a href="https://www.atlassian.com/git/articles/10-years-of-git#"-->
+                                   <!--class="cms-link cms-link&#45;&#45;text info">info</a>-->
+                                <!--<div class="item-modal">-->
+                                    <!--<p>Gist is a simple way to share code snippets and pastes with others. Upon their-->
+                                        <!--creation, gists expanded on pastebins (public place to paste source code) by-->
+                                        <!--adding version control for code snippets, easy forking, SSL encryption for-->
+                                        <!--private pastes and the ability to be pushed and pulled using Git (since each-->
+                                        <!--Gist has its own repository.)</p>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        </div>
+                        <div class="item graph git-searches active enter">
+                            <!--<h3>"Git Download" Keyword Search Trend over Time</h3>-->
+                            <!--<div class="_hero is-active">-->
+                                <!--<img src="./10 Years of Git _ Atlassian Git Tutorial_files/new-git-searches.svg"-->
+                                     <!--alt="Git Searches">-->
+                            <!--</div>-->
+                        </div>
+                        <div class="item large skyrocket active enter" id="i4">
+                            <div class="g-row content">
+                                <a href="why.html">
+                                    <h3 class="date">Git更新代码原理</h3>
+                                    <h3>了解整个代码执行流程，更好的理解命令执行的过程</h3>
+                                    <!--<a href="https://www.atlassian.com/git/articles/10-years-of-git#"-->
+                                       <!--class="cms-link cms-link&#45;&#45;text info">info</a>-->
+                                    <!--<div class="item-modal">-->
+                                        <!--<p>Installations on Debian Linux show that developers were taking huge notice of Git-->
+                                            <!--and starting to make the switch from SVN, CVS and Mercurial.</p>-->
+                                    <!--</div>-->
+                                </a>
+                            </div>
+                            <div class="kinematic animated">
+                                <img src="./10 Years of Git _ Atlassian Git Tutorial_files/new-skyrocket@2x.png"
+                                     alt="Git Announced">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer" class="footer ">
+    <div class="g-row _atlassian-logo">
+        <div class="g-column g-12-12">
+            <!--<h5>Powered By Yujie</h5>-->
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    $(document).ready(function () {
+        location.reload();
+    })
+</script>
